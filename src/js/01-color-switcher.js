@@ -12,7 +12,6 @@ function startAction() {
     timeId = setInterval(() => {
         const currentColor = getRandomHexColor();
         document.body.style.backgroundColor = currentColor;
-        console.log(currentColor);
     }, 1000);
 
     refs.start.setAttribute('disabled', '');
