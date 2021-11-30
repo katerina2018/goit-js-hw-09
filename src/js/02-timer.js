@@ -34,6 +34,7 @@ const options = {
                 stopTime();
                 return;
             }
+
             intervalId = setInterval(() => {
                 const currentTime = Date.now();
                 const calculatePeriod = selectedDates[0] - currentTime;
@@ -45,10 +46,7 @@ const options = {
                 }
 
                 const { days, hours, minutes, seconds } = convertMs(calculatePeriod);
-                refs.days.textContent = days;
-                refs.hours.textContent = hours;
-                refs.minutes.textContent = minutes;
-                refs.seconds.textContent = seconds;
+                updateInterface(days, hours, minutes, seconds);
             }, 1000);
 
             disabledBtn();
@@ -74,6 +72,13 @@ disabledBtn();
 
 function disabledBtn() {
     refs.btn.setAttribute('disabled', '');
+}
+
+function updateInterface(days, hours, minutes, seconds) {
+    refs.days.textContent = days;
+    refs.hours.textContent = hours;
+    refs.minutes.textContent = minutes;
+    refs.seconds.textContent = seconds;
 }
 
 function convertMs(ms) {
